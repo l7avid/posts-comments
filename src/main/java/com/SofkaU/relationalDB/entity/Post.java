@@ -4,8 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
-@Entity(name = "Post")
+@Entity
 @Table(name = "post")
 @Data
 public class Post {
@@ -20,7 +21,7 @@ public class Post {
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     ) //para indicar la relacion entre el modelo Post y Comment -> Un solo Post contiene muchos Comments
-    private ArrayList<Comment> comments = new ArrayList<>();
+    private List<Comment> comments = new ArrayList<>();
 
     public Post addComments(Comment comment){
         this.comments.add(comment);
