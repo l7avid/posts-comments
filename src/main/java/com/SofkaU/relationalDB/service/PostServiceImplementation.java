@@ -25,7 +25,7 @@ public class PostServiceImplementation implements PostService {
 
     @Override
     public Post createComment(Comment comment) {
-        Post post = postRepository.findById(comment.getFK_post_id()).get();
+        Post post = postRepository.findById(comment.getFkPostId()).get();
         post.addComments(comment);
         commentRepository.save(comment);
         return postRepository.save(post);
